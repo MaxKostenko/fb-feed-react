@@ -1,7 +1,7 @@
 import 'semantic-ui-css/semantic.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Facebook from './Facebook';
+import Facebook from './components/Facebook';
 
 ReactDOM.render(
 		<Facebook/>,

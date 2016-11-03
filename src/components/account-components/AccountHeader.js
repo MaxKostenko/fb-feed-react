@@ -1,6 +1,6 @@
 /* global FB */
 import React from 'react';
-import ProfilePicture from '../components/ProfilePicture';
+import ProfilePicture from '../ui-components/ProfilePicture';
 import Greeting from './AccountGreeting'
 import FriendsCount from './AccountFriendsCount'
 import BirthDay from './AccountBirthDay'

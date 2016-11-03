@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfilePicture from '../components/ProfilePicture';
+import ProfilePicture from '../ui-components/ProfilePicture';
 import Time from './PostTime';
 
 export default class PostHeader extends React.Component {

@@ -1,6 +1,6 @@
 /* global FB */
 import React from 'react';
-import Button from '../components/Button';
+import Button from '../ui-components/Button';
 
 export default class AccountLogoutButton extends React.Component {
 
