@@ -1,6 +1,7 @@
 /* global FB */
 import React from 'react';
 import FeedItem from './FeedItem';
+import UserStore from '../../stores/UserStore';
 
 export default class AccountFeed extends React.Component {
 
@@ -8,12 +9,8 @@ export default class AccountFeed extends React.Component {
 		feed: []
 	}
 
-	static propTypes = {
-		userId: React.PropTypes.string.isRequired,
-	};
-
 	componentDidMount() {
-		FB.api(`/${this.props.userId}/posts`, 'GET', {fields:("application,attachments,caption,created_time,description," +
+		FB.api(`/${UserStore.id}/posts`, 'GET', {fields:("application,attachments,caption,created_time,description," +
 						"from,icon,link,name,message,object_id,picture,place,source,shares,status_type,type")}, (response) => {
 			console.log(response);
 			this.setState({feed: response.data});

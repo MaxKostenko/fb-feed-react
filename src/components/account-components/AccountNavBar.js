@@ -2,19 +2,16 @@ import React from 'react';
 import ProfilePicture from '../ui-components/ProfilePicture';
 import './AccountNavBar.css';
 import Logout from './AccountLogoutButton';
+import UserStore from '../../stores/UserStore';
 
 const SHOW_AFTER_TOP_OFFSET = 200;
 
 export default class AccountNavBar extends React.Component {
 	
-	static propTypes = {
-        userId: React.PropTypes.string.isRequired,
-        handleLogOut: React.PropTypes.func.isRequired
-    };
-	
 	isHidden = true;
 
 	componentWillMount() {
+		this.userId = UserStore.id;
 		this.scrollEvent = this.handleScroll.bind(this);
 	}
 	
@@ -46,12 +43,12 @@ export default class AccountNavBar extends React.Component {
 			<div className="ui text container">
 				<div className="left menu">
 					<div className="item">
-						<ProfilePicture user={this.props.userId} size="tiny" /> 
+						<ProfilePicture user={this.userId} size="tiny" /> 
 					</div>
 				</div>
 				<div className="right menu">
 					<div className="item">
-						<Logout handleLogOut={this.props.handleLogOut}/>
+						<Logout />
 					</div>
 				</div>
 			</div>

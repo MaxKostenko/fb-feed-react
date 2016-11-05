@@ -1,6 +1,7 @@
 /* global FB */
 import React from 'react';
 import Button from '../ui-components/Button';
+import UserActions from '../../actions/UserActions';
 
 export default class AccountLogoutButton extends React.Component {
 
@@ -10,9 +11,7 @@ export default class AccountLogoutButton extends React.Component {
 
 	actionClick() {
 		this.setState({isLoading: true});
-		FB.logout((response) => {
-			this.props.handleLogOut(response);
-		});
+		UserActions.logout();
 	}
 	
 	render() {

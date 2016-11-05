@@ -1,5 +1,5 @@
 import React from 'react';
-import DayLeft from '../libs/DayLeft';
+import DayLeft from '../../libs/DayLeft';
 
 export default class AccountBirthDay extends React.Component {
 

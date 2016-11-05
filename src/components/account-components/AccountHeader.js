@@ -5,6 +5,7 @@ import Greeting from './AccountGreeting'
 import FriendsCount from './AccountFriendsCount'
 import BirthDay from './AccountBirthDay'
 import Logout from './AccountLogoutButton';
+import UserStore from '../../stores/UserStore';
 
 export default class AccountHeader extends React.Component {
 
@@ -13,10 +14,9 @@ export default class AccountHeader extends React.Component {
     };
 	
 	static propTypes = {
-		userId: React.PropTypes.string.isRequired,
-		handleLogOut: React.PropTypes.func.isRequired
+		userId: React.PropTypes.string.isRequired
 	}
-
+	
 	componentDidMount() {
 		FB.api('/me', 'GET', {fields: "id,name,birthday,context,email,gender"}, (response) => {
 			this.setState({profile: response});
@@ -31,7 +31,7 @@ export default class AccountHeader extends React.Component {
 		return <header className="ui center aligned">
 			<div className="ui stackable grid">
 				<div className="six wide column">
-					<ProfilePicture user={this.props.userId} size="medium" /> 
+					<ProfilePicture user={UserStore.id} size="medium" /> 
 				</div>
 				<div className="ten wide column">
 					<div className={this.loadingClassNames}>
@@ -41,7 +41,7 @@ export default class AccountHeader extends React.Component {
 					<FriendsCount context={this.state.profile.context} />
 					<BirthDay birthday={this.state.profile.birthday} />
 					<div className="ui clearing">
-						<Logout handleLogOut={this.props.handleLogOut}/>
+						<Logout />
 					</div>
 				</div>
 			</div>
